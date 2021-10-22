@@ -122,6 +122,7 @@ class NetworkPrinter {
   void image(Image imgSrc, {PosAlign align = PosAlign.center}) {
     _socket.add(_generator.image(imgSrc, align: align));
     _socket.add(Uint8List.fromList([16,4,1]));
+    print('Printer query cmd send ...');
   }
 
   void imageRaster(
