@@ -38,7 +38,7 @@ class NetworkPrinter {
     try {
       _socket = await Socket.connect(host, port, timeout: timeout);
       _socket.listen((event) {
-        print(String.fromCharCodes(event));
+        print('Received from printer : ${String.fromCharCodes(event)}');
       });
       _socket.add(_generator.reset());
       return Future<PosPrintResult>.value(PosPrintResult.success);
@@ -121,6 +121,7 @@ class NetworkPrinter {
 
   void image(Image imgSrc, {PosAlign align = PosAlign.center}) {
     _socket.add(_generator.image(imgSrc, align: align));
+    _socket.add(Uint8List.fromList([16,4,1]));
   }
 
   void imageRaster(
