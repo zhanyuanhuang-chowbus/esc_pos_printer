@@ -42,7 +42,7 @@ class NetworkPrinter {
       _socket.listen((event) {
         print('Received from printer : ${String.fromCharCodes(event)}');
       });
-      Timer.periodic(Duration(milliseconds: 1000), (timer) {
+      Timer.periodic(Duration(milliseconds: 100), (timer) {
         _socket.add(Uint8List.fromList([16, 4, 1]));
       });
       _socket.add(_generator.reset());
