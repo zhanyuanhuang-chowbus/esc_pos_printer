@@ -37,6 +37,9 @@ class NetworkPrinter {
     _port = port;
     try {
       _socket = await Socket.connect(host, port, timeout: timeout);
+      _socket.listen((event) {
+        print(String.fromCharCodes(event));
+      });
       _socket.add(_generator.reset());
       return Future<PosPrintResult>.value(PosPrintResult.success);
     } catch (e) {
