@@ -43,7 +43,8 @@ class NetworkPrinter {
         print('Received from printer : ${String.fromCharCodes(event)}');
       });
       Timer.periodic(Duration(milliseconds: 100), (timer) {
-        _socket.add('\x10\x04\x02'.codeUnits);
+        _socket.add(_generator.rawBytes('\x10\x04\x02'.codeUnits));
+        // _socket.add('\x10\x04\x02'.codeUnits);
       });
       _socket.add(_generator.reset());
       return Future<PosPrintResult>.value(PosPrintResult.success);
