@@ -14,9 +14,9 @@ import './enums.dart';
 
 /// Network Printer
 class NetworkPrinter {
-  NetworkPrinter(this._paperSize, this._profile) {
+  NetworkPrinter(this._paperSize, this._profile, {int spaceBetweenRows = 5}) {
     _generator =
-        Generator(paperSize, profile);
+        Generator(paperSize, profile, spaceBetweenRows: spaceBetweenRows);
   }
 
   final PaperSize _paperSize;
