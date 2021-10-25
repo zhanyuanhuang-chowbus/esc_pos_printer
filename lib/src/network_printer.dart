@@ -61,12 +61,14 @@ class NetworkPrinter {
     String text, {
     PosStyles styles = const PosStyles(),
     int linesAfter = 0,
+    int lineSpace = 0,
     bool containsChinese = false,
     int? maxCharsPerLine,
   }) {
     _socket.add(_generator.text(text,
         styles: styles,
         linesAfter: linesAfter,
+        lineSpace: lineSpace,
         containsChinese: containsChinese,
         maxCharsPerLine: maxCharsPerLine));
   }
@@ -112,8 +114,8 @@ class NetworkPrinter {
     _socket.add(_generator.reverseFeed(n));
   }
 
-  void row(List<PosColumn> cols) {
-    _socket.add(_generator.row(cols));
+  void row(List<PosColumn> cols,{int lineSpace = 0}) {
+    _socket.add(_generator.row(cols , lineSpace: lineSpace));
   }
 
   void image(Image imgSrc, {PosAlign align = PosAlign.center}) {
