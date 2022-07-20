@@ -11,7 +11,7 @@ dependencies:
   esc_pos_utils:
     git:
       url: git@github.com:zhanyuanhuang-chowbus/esc_pos_utils.git
-      ref: 3697479435b8fa26e1c2723efba2f6bcc1c0c1e3
+      ref: a9863fc325dab210282231833685a462c345dd29
   flutter:
     sdk: flutter
   # esc_pos_utils:
